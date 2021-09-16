@@ -1,0 +1,47 @@
+.red {
+  color: red;
+}
+
+.flex {
+  display: flex;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: gray;
+  flex: 1;
+}
+
+.button {
+  cursor: pointer;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.button:hover {
+  background-color: #dedede;
+}
+
+#blue {
+  color: green;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .center {
+    background-color: green;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 601) {
+}
