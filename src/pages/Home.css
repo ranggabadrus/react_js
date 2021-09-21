@@ -2,6 +2,14 @@
   color: red;
 }
 
+.red:hover {
+  color: black;
+}
+
+#blue {
+  color: blue;
+}
+
 .flex {
   display: flex;
 }
@@ -26,10 +34,6 @@
   background-color: #dedede;
 }
 
-#blue {
-  color: green;
-}
-
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .flex {
@@ -37,11 +41,11 @@
     flex-direction: column;
   }
 
+  .red {
+    color: pink;
+  }
+
   .center {
     background-color: green;
   }
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 601) {
 }
