@@ -1,20 +1,17 @@
 import { Button } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Home.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useParams,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter as Router, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getName, getUser } from "../redux/action/user";
 
 export default function Home() {
   const [data, setData] = useState("");
+  const navigation = useHistory();
 
-  let location = useLocation();
-
-  console.log("params ", location);
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  useEffect(() => {}, []);
 
   return (
     <div className="">
@@ -38,14 +35,21 @@ export default function Home() {
       />
       <button>Button Submit</button>
       <div className="button">Div Submit</div>
-      <Button color="error" variant="contained">
-        Contained
-      </Button>
+      {user}
       <div
-        className="bg-yellow-500 px-13 py-5 my-12 rounded-3xl hover:bg-blue-500 hover:text-red-500
-      cursor-move"
+        className="bg-yellow-500 px-13 py-5 my-12 rounded-3xl hover:bg-blue-500 hover:text-red-500 cursor-move"
+        onClick={async () => {
+          // dispatch(getUser("eko"));
+          let name = await dispatch(getName());
+          console.log("response ", name);
+          if (name.data === "Star Wars") {
+            alert("Correct " + name.data);
+          } else {
+            alert("wrong name");
+          }
+        }}
       >
-        CONTAINED
+        About
       </div>
     </div>
   );
